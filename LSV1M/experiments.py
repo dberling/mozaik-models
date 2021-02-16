@@ -38,3 +38,17 @@ def create_experiments_stc(model):
                                                'spatial_frequency': 0.8, 'temporal_frequency': 2, 'grating_duration': 2*143*7, 'contrasts': [30, 100], 'num_trials': 10})),
     ]
 
+
+def create_experiments_dot(model):
+
+    return [
+        # Lets kick the network up into activation
+
+        # Spontaneous Activity
+        NoStimulation(model, ParameterSet(
+            {'duration': 3*8*2*5*3*8*7})),
+
+        # Measure cortical response to a dot at the center
+        MeasureDot(model, ParameterSet(
+            {'radius': 0.5, 'smoothing': 0.25, 'duration': 2*143*7, 'contrast': 10, 'num_trials':10}))
+    ]
